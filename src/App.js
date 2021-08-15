@@ -22,7 +22,7 @@ function App() {
   ]
   return (
     <div>
-      {expenses.map(item => (<ExpenseItem date={item.date} title={item.title} amount={item.amount}></ExpenseItem>))}
+      {expenses.map(item => (<ExpenseItem date={item.date} title={item.title} amount={item.amount} />))}
     </div>
   );
 }
