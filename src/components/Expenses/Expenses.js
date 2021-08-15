@@ -18,7 +18,7 @@ const Expenses = (props) => {
         <div>
             <Card className='expenses'>
                 <ExpensesFilter filter={filter} onFilterChange={onFilterChangeHandler} />
-                {expenses.map(item => (<ExpenseItem date={item.date} title={item.title} amount={item.amount} />))}
+                {expenses.map(item => (<ExpenseItem key={item.id} date={item.date} title={item.title} amount={item.amount} />))}
             </Card>
         </div>
     );
