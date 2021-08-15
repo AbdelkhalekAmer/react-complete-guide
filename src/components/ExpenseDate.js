@@ -1,4 +1,4 @@
-import './ExpenseDate.css'
+import './ExpenseDate.css';
 
 function ExpenseDate(props) {
     const year = props.date.getFullYear();

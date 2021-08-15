@@ -1,30 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
-import ExpenseItem from './components/ExpenseItem';
+import Expenses from './components/Expenses';
 
 function App() {
   const expenses = [
     {
-      date: new Date(2021, 7, 15),
-      title: 'A',
-      amount: 240
+      id: 'e1',
+      title: 'Toilet Paper',
+      amount: 94.12,
+      date: new Date(2020, 7, 15)
     },
     {
-      date: new Date(2021, 7, 15),
-      title: 'B',
-      amount: 122.5
+      id: 'e2',
+      title: 'New TV',
+      amount: 799.49,
+      date: new Date(2021, 2, 12)
     }
-    , {
-      date: new Date(2021, 7, 15),
-      title: 'C',
-      amount: 75
+    ,
+    {
+      id: 'e3',
+      title: 'Car Insurance',
+      amount: 294.67,
+      date: new Date(2021, 2, 28)
+    },
+    {
+      id: 'e4',
+      title: 'New Desk (Wooden)',
+      amount: 450,
+      date: new Date(2021, 5, 12)
     }
   ]
-  return (
-    <div>
-      {expenses.map(item => (<ExpenseItem date={item.date} title={item.title} amount={item.amount} />))}
-    </div>
-  );
+  return (<Expenses expenses={expenses} />);
 }
 
 export default App;
