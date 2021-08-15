@@ -1,4 +1,5 @@
 import './App.css';
+import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
 
 const App = () => {
@@ -29,7 +30,12 @@ const App = () => {
       date: new Date(2021, 5, 12)
     }
   ]
-  return (<Expenses expenses={expenses} />);
-}
+  return (
+    <div>
+      <NewExpense />
+      <Expenses expenses={expenses} />
+    </div>
+  );
+};
 
 export default App;
