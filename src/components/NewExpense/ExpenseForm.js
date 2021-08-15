@@ -3,19 +3,20 @@ import { useState } from 'react';
 
 const ExpenseForm = props => {
     const TODAY = new Date();
-    var CURRENT_DATE = `${TODAY.getFullYear()}-${`0${TODAY.getMonth() + 1}`.slice(-2)}-${`0${TODAY.getDate()}`.slice(-2)}`;
+    const CURRENT_DATE = `${TODAY.getFullYear()}-${`0${TODAY.getMonth() + 1}`.slice(-2)}-${`0${TODAY.getDate()}`.slice(-2)}`;
     const DEFAULT_EXPENSE = {
         title: '',
         amount: 0.01,
         date: CURRENT_DATE
     };
+    const onSaveExpense = props.onSaveExpense;
     const [expense, setExpense] = useState(DEFAULT_EXPENSE);
     const titleChangeHandler = event => setExpense(prevState => { return { ...prevState, title: event.target.value }; });
     const amountChangeHandler = event => setExpense(prevState => { return { ...prevState, amount: event.target.value }; });
     const dateChangeHandler = event => setExpense(prevState => { return { ...prevState, date: event.target.value }; });
     const submitHandler = event => {
         event.preventDefault();
-        console.log(expense);
+        onSaveExpense(expense);
         setExpense(DEFAULT_EXPENSE);
     };
     return (
