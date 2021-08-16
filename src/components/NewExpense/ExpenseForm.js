@@ -10,6 +10,7 @@ const ExpenseForm = props => {
         date: CURRENT_DATE
     };
     const onSaveExpense = props.onSaveExpense;
+    const hideForm = props.hideForm;
     const [expense, setExpense] = useState(DEFAULT_EXPENSE);
     const titleChangeHandler = event => setExpense(prevState => { return { ...prevState, title: event.target.value }; });
     const amountChangeHandler = event => setExpense(prevState => { return { ...prevState, amount: event.target.value }; });
@@ -18,9 +19,18 @@ const ExpenseForm = props => {
         event.preventDefault();
         onSaveExpense(expense);
         setExpense(DEFAULT_EXPENSE);
+        resetForm();
+    };
+    const resetHandler = event => {
+        event.preventDefault();
+        resetForm();
+    };
+    const resetForm = () => {
+        setExpense(DEFAULT_EXPENSE);
+        hideForm();
     };
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} onReset={resetHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
@@ -36,6 +46,7 @@ const ExpenseForm = props => {
                 </div>
             </div>
             <div className='new-expense__actions'>
+                <button type='reset'>Cancel</button>
                 <button type='submit'>Add Expense</button>
             </div>
         </form>

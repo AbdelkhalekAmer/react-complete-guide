@@ -34,8 +34,12 @@ const INITIAL_EXPENSES = [
 const App = () => {
   const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
   const addExpenseHandler = expense => {
-    expense.id = `e${Math.floor(Math.random() * 100)}`;
-    setExpenses(prevState => [expense, ...prevState]);
+    setExpenses(prevState => [{
+      id: `e${Math.floor(Math.random() * 100)}`,
+      title: expense.title,
+      amount: parseFloat(expense.amount),
+      date: new Date(expense.date)
+    }, ...prevState]);
   };
   return (
     <div>
