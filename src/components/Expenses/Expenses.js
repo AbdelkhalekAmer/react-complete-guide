@@ -1,6 +1,6 @@
 import './Expenses.css';
 import Card from '../UI/Card';
-import ExpenseItem from './ExpenseItem';
+import ExpensesList from './ExpensesList';
 import ExpensesFilter from './ExpensesFilter';
 import { useState } from 'react';
 
@@ -18,11 +18,7 @@ const Expenses = (props) => {
         <div>
             <Card className='expenses'>
                 <ExpensesFilter filter={filter} onFilterChange={onFilterChangeHandler} />
-                {
-                    filteredExpenses.length ?
-                        filteredExpenses.map(item => (<ExpenseItem key={item.id} date={item.date} title={item.title} amount={item.amount} />))
-                        : (<h2 className='white-font'>No available expenses.</h2>)
-                }
+                <ExpensesList expenses={filteredExpenses} />
             </Card>
         </div>
     );
