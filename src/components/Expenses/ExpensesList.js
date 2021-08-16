@@ -4,11 +4,11 @@ import ExpenseItem from './ExpenseItem';
 const ExpensesList = props => {
     const expenses = props.expenses;
     if (expenses.length) {
-        return expenses.map(item => (
+        return (
             <ul className='expenses-list'>
-                <ExpenseItem key={item.id} date={item.date} title={item.title} amount={item.amount} />
+                {expenses.map(expense => <ExpenseItem key={expense.id} date={expense.date} title={expense.title} amount={expense.amount} />)}
             </ul>
-        ));
+        );
     }
     else {
         return <p className='expenses-list__fallback'>No available expenses.</p>
